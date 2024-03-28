@@ -28,6 +28,8 @@ Uncomment this one or set to rights="read|write".
 Set disk cache usage higher, I set it to 8GiB here.
 
 ```
+搭配imagemagick使用
+mv -f ./issuu-dl/policy.xml /etcImageMagick-6/policy.xml
 <policy domain="resource" name="disk" value="8GiB"/>
 ```
 
