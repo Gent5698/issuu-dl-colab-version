@@ -34,8 +34,11 @@ Set disk cache usage higher, I set it to 8GiB here.
 ## Dependencies
 
 wget, ImageMagick (convert).
+
 ## 移動policy.xml檔案到ImageMagick-6
-```
+
 搭配imagemagick使用
+
+```
 mv -f ./issuu-dl/policy.xml /etc/ImageMagick-6/policy.xml
 ```
