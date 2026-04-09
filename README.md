@@ -1,43 +1,42 @@
 # issuu-dl
 
-issuu-dl downloads documents from [issuu.com](https://issuu.com). It downloads
-the document's pages in the jpg format and saves those in /tmp to some temporary
-directory. The images are not deleted. The images are then converted to a pdf
-and it will be saved in the current directory and named by the title of the
-document.
+issuu-dl 用於從 [issuu.com](https://issuu.com) 下載文件。它會將文件的每一頁下載為 JPG 格式，並儲存在 /tmp 的暫存目錄中（圖片不會被刪除）。之後這些圖片會被轉換成 PDF，並儲存在當前目錄，檔名為文件標題。
 
-## Usage
+## 使用方式
 
 ```
-./issuu-dl <url of the magazine/book on issuu.com>
+./issuu-dl <issuu.com 上的雜誌/書籍 URL>
 ```
 
-The URL needs to be for the whole document, for example
-[https://issuu.com/jmadler/docs/modern_perl](https://issuu.com/jmadler/docs/modern_perl),
-not anything else, like not a URL for a single page.
+URL 必須是整本文件的連結，例如：
+https://issuu.com/jmadler/docs/modern_perl
 
-You might need to change a couple of ImageMagick policies. The file is
-/etc/ImageMagick-6/policy.xml in Linux.
+不能是單一頁面的 URL。
 
-Uncomment this one or set to rights="read|write".
+你可能需要修改 ImageMagick 的設定。Linux 中的檔案位置為：
+
+/etc/ImageMagick-6/policy.xml
+
+請取消註解以下設定，或將權限設為 rights="read|write"：
 
 ```
 <policy domain="coder" rights="none" pattern="PDF" />
 ```
 
-Set disk cache usage higher, I set it to 8GiB here.
+並提高磁碟快取使用量，例如設定為 8GiB：
 
 ```
 <policy domain="resource" name="disk" value="8GiB"/>
 ```
 
-## Dependencies
+## 相依套件
 
-wget, ImageMagick (convert).
+- wget
+- ImageMagick（convert）
 
-## 移動policy.xml檔案到ImageMagick-6
+## 移動 policy.xml 檔案到 ImageMagick-6
 
-搭配imagemagick使用
+搭配 ImageMagick 使用：
 
 ```
 mv -f ./issuu-dl/policy.xml /etc/ImageMagick-6/policy.xml
